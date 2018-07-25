@@ -24,7 +24,7 @@ jobs:
   fast_finish: true
   include:
     - stage: release
-      script: "make all-variants"
+      script: "make release"
       deploy:
         provider: releases
         skip_cleanup: true
