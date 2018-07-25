@@ -75,6 +75,14 @@ get-deps:
 	go get github.com/golang/mock/mockgen
 	go get golang.org/x/tools/cmd/goimports
 
+.PHONY: release
+release: all-variants
+	mkdir -p releases
+	zip -j releases/docker-credential-ecr-login_darwin_amd64.zip  bin/darwin-amd64/docker-credential-ecr-login
+	zip -j releases/docker-credential-ecr-login_linux_amd64.zip   bin/linux-amd64/docker-credential-ecr-login
+	zip -j releases/docker-credential-ecr-login_windows_amd64.zip bin/windows-amd64/docker-credential-ecr-login.exe
+
 .PHONY: clean
 clean:
 	rm -rf ./bin ||:
+	rm -f releases/*.zip

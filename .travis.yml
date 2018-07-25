@@ -30,10 +30,8 @@ jobs:
         skip_cleanup: true
         api_key:
           secure: tC9PaHFo4iG+aji+7LBkmleRZD9ZO8IcU2Nxwp1KUiBObJwwTNp56pJfiPyPAXGrzh6kePNNS4iwjbIVEmjEooyshPQodHJ5TjlXfxyzyoEpazioW4rWjTy8+5tU7GUgBxibG0wumgg+fVYiotIPPzaBgp5/QlUghT1oRclwGOB7hyUiPc/Ldav8qhYhADVo5a+hCw7ej6awEBnHYcPOmvzKXRfiSlxvi7NytULAUNnXAI9cEVhgnD5tmPt/W50nkOAdgii3dm1f6LGgqTZvUEftOW34YIM/roEejrU3XfT5Ew+38JH5MncA6jmpU+O/kJ0RO9kqvzxzrN6F62k3mPN24BLl+73kBCSPaCkdSxCmaPsPLNpLRZ/WI6uoiUb2xQUiq4szFM7vY2lNPKI5pDJXfqbNlLDI8MqQBP59Re2JCQrdxx8IDVdB/H7HOh3icMM6iKDp3o7yAFLUxvz5OmNl8zH1AL17xqtt73k66QuJ9B2PQtljRWQSvfqQTuVJGio+6ubFf+EV53sf+Tzw4wVSQyZlb4oMrMotqXmBVdUGR8qmp8QXAI9UcQaIrRdrxicsPT/XT4jQfZzPpla40Uhzv5jE257XWGTgy/YJUqA+ClAR+/uLmMHDj/6tZCthRxfvkXBGexSRz5EXd79fRbNo2IDL/+ue+unXTrfr4LQ=
-        file:
-          - ./bin/darwin-amd64/docker-credential-ecr-login
-          - ./bin/linux-amd64/docker-credential-ecr-login
-          - ./bin/windows-amd64/docker-credential-ecr-login.exe
+        file_glob: true
+        file: "releases/docker-credential-ecr-login*.zip"
         on:
           repo: jrbeilke/amazon-ecr-credential-helper
           tags: true
